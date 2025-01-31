@@ -1,0 +1,42 @@
+package org.example;
+
+import io.github.bonigarcia.wdm.WebDriverManager;
+import org.example.configInitialization.AppConfig;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.chrome.ChromeDriver;
+import org.testng.annotations.*;
+
+public class TestsRunner {
+    public WebDriver driver;
+
+    @BeforeSuite
+    public void beforeSuite() {
+        new AppConfig();
+        if (AppConfig.BROWSER.equals("chrome")) ;
+        {
+            WebDriverManager.chromedriver().setup();
+            driver = new ChromeDriver();
+        }
+
+    }
+
+    @BeforeClass
+    public void beforeClass() {
+
+    }
+
+    @BeforeMethod
+    public void beforeMethod() {
+        driver.get(AppConfig.MAIN_URL);
+    }
+
+    @AfterMethod
+    public void afterMethod() {
+        driver.close();
+    }
+
+    @AfterClass
+    public void afterClass() {
+
+    }
+}
