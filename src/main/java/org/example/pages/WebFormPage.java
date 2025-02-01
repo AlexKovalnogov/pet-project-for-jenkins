@@ -6,8 +6,7 @@ import org.openqa.selenium.support.ui.Select;
 
 import java.time.LocalDate;
 
-public class WebFormPage extends BasePage
-{
+public class WebFormPage extends BasePage {
 
     public WebDriver driver;
     private Logger log = Logger.getLogger(WebFormPage.class);
@@ -45,12 +44,12 @@ public class WebFormPage extends BasePage
 
     public WebFormPage typePasswordInput(String value) {
         log.info("Type password input");
-        typeTextToElement(passwordInput,value);
+        typeTextToElement(passwordInput, value);
         return this;
     }
 
     public WebFormPage typeTextAreaInput(String value) {
-        typeTextToElement(textAreaInput,value);
+        typeTextToElement(textAreaInput, value);
         return this;
     }
 
@@ -138,4 +137,32 @@ public class WebFormPage extends BasePage
         return this;
     }
 
+    public String getTextInputValue() {
+
+        return getAttributeValueOfElement(textInput ,"value");
+    }
+
+    public String getPasswordValue() {
+        return "";
+    }
+
+    public String getTextAreaText() {
+        return "";
+    }
+
+    public String getDropDownValue() {
+        return "";
+    }
+
+    public String getDataListValue() {
+        return "";
+    }
+
+    public boolean isCheckboxEnabled() {
+        return false;
+    }
+
+    public boolean isRadioButtonSelected() {
+        return false;
+    }
 }

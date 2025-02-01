@@ -1,10 +1,12 @@
-import org.apache.log4j.Logger;
 import org.example.TestsRunner;
 import org.example.pages.SelectStrategy;
 import org.example.pages.WebFormPage;
 import org.testng.annotations.Test;
 
-public class PrefillFormTestCase extends TestsRunner {
+import static org.hamcrest.MatcherAssert.assertThat;
+import static org.hamcrest.Matchers.is;
+
+public class PrefillFormTestCasePassed extends TestsRunner {
 
     @Test
     public void testThatFormCanBePrefilledByUser() {
@@ -20,6 +22,11 @@ public class PrefillFormTestCase extends TestsRunner {
                 .selectColorInPicker("#FFEEXX")
                 .selectCurrentDateInDatePicker()
                 .changeScale(3,true);
+
+
+        assertThat("Looks like value in Text input is wrong ",
+                webFormPage.getTextInputValue(),
+                is("Hello"));
     
     }
 }

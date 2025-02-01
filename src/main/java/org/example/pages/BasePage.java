@@ -124,4 +124,13 @@ public class BasePage {
             return "";
         }
     }
+
+    protected String getElementText (WebElement element){
+        return element.getText();
+    }
+
+    protected String getAttributeValueOfElement (By elementBy ,String attribute){
+        return getWebElement(elementBy).getDomProperty( attribute );
+    }
+
 }
