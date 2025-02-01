@@ -12,17 +12,17 @@ public class TestsRunner {
     @BeforeSuite
     public void beforeSuite() {
         new AppConfig();
-        if (AppConfig.BROWSER.equals("chrome")) ;
-        {
-            WebDriverManager.chromedriver().setup();
-            driver = new ChromeDriver();
-        }
+
 
     }
 
     @BeforeClass
     public void beforeClass() {
-
+        if (AppConfig.BROWSER.equals("chrome")) ;
+        {
+            WebDriverManager.chromedriver().setup();
+            driver = new ChromeDriver();
+        }
     }
 
     @BeforeMethod
