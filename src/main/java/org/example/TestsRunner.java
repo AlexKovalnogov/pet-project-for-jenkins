@@ -26,7 +26,11 @@ public class TestsRunner {
             chromeOptions.addArguments("--headless");
             chromeOptions.addArguments("--no-sandbox");
             chromeOptions.addArguments("--dev-shm-usage");
-            driver = new ChromeDriver(chromeOptions);
+            try{
+            driver = new ChromeDriver(chromeOptions);}
+            catch (Exception e){
+                System.out.printf("Issue "+ e );
+            }
         }
     }
 
