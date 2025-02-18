@@ -1,5 +1,4 @@
 import org.example.TestsRunner;
-import org.example.listeners.AIListener;
 import org.example.listeners.TestsResultsListener;
 import org.example.pages.SelectStrategy;
 import org.example.pages.WebFormPage;
