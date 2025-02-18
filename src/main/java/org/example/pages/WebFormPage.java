@@ -1,5 +1,6 @@
 package org.example.pages;
 
+import io.qameta.allure.Step;
 import org.apache.log4j.Logger;
 import org.openqa.selenium.*;
 import org.openqa.selenium.support.ui.Select;
@@ -36,23 +37,26 @@ public class WebFormPage extends BasePage {
         //waitForElementNotVisible(element);
     }
 
+    @Step
     public WebFormPage typeTextInput(String value) {
         log.info("Type text input");
         typeTextToElement(textInput, value);
         return this;
     }
 
+    @Step
     public WebFormPage typePasswordInput(String value) {
         log.info("Type password input");
         typeTextToElement(passwordInput, value);
         return this;
     }
 
+    @Step
     public WebFormPage typeTextAreaInput(String value) {
         typeTextToElement(textAreaInput, value);
         return this;
     }
-
+    @Step
     public WebFormPage selectItemInDropDown(String value, SelectStrategy strategy) {
         WebElement selectElement = driver.findElement(selectBy);
         Select select = new Select(selectElement);
@@ -69,6 +73,7 @@ public class WebFormPage extends BasePage {
         return this;
     }
 
+    @Step
     public WebFormPage selectItemInDataListByIndex(int index) {
 
         var input = driver.findElement(By.xpath("//input[@list='my-options']"));
@@ -96,16 +101,19 @@ public class WebFormPage extends BasePage {
         return this;
     }
 
+    @Step
     public WebFormPage chooseCheckBox(int id) {
         driver.findElement(By.xpath(String.format(checkBoxPattern, id))).click();
         return this;
     }
 
+    @Step
     public WebFormPage chooseRadioButton(int id) {
         driver.findElement(By.xpath(String.format(radioButtonPattern, id))).click();
         return this;
     }
 
+    @Step
     public WebFormPage selectColorInPicker(String hexValue) {
         JavascriptExecutor jse = (JavascriptExecutor) driver;
         jse.executeScript("document.getElementsByName('my-colors')[0].value='" + hexValue + "'");
@@ -114,6 +122,7 @@ public class WebFormPage extends BasePage {
         return this;
     }
 
+    @Step
     public WebFormPage selectCurrentDateInDatePicker() {
         LocalDate today = LocalDate.now();
         int currentMonth = today.getMonth().getValue();
@@ -125,6 +134,7 @@ public class WebFormPage extends BasePage {
         return this;
     }
 
+    @Step
     public WebFormPage changeScale(int times, boolean isUp) {
         WebElement slider = driver.findElement(sliderBy);
         for (int i = 0; i < times; i++) {
@@ -139,7 +149,7 @@ public class WebFormPage extends BasePage {
 
     public String getTextInputValue() {
 
-        return getAttributeValueOfElement(textInput ,"value");
+        return getAttributeValueOfElement(textInput, "value");
     }
 
     public String getPasswordValue() {

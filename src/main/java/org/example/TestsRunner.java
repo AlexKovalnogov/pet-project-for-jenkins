@@ -1,6 +1,7 @@
 package org.example;
 
 import io.github.bonigarcia.wdm.WebDriverManager;
+import io.qameta.allure.Allure;
 import org.example.configInitialization.AppConfig;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
@@ -13,8 +14,6 @@ public class TestsRunner {
     @BeforeSuite
     public void beforeSuite() {
         new AppConfig();
-
-
     }
 
     @BeforeClass
@@ -32,12 +31,14 @@ public class TestsRunner {
             catch (Exception e){
                 System.out.printf("Issue "+ e );
             }
+            DriverHolder.availableDrivers.add(driver);
         }
     }
 
     @BeforeMethod
     public void beforeMethod() {
         driver.get(AppConfig.MAIN_URL);
+        Allure.step("Website is opened");
     }
 
     @AfterMethod
@@ -48,5 +49,9 @@ public class TestsRunner {
     @AfterClass
     public void afterClass() {
 
+    }
+
+    public WebDriver getDriver(){
+        return driver;
     }
 }
