@@ -1,4 +1,5 @@
 import org.example.TestsRunner;
+import org.example.listeners.TestsResultsListener;
 import org.example.pages.SelectStrategy;
 import org.example.pages.WebFormPage;
 import org.testng.annotations.Listeners;
@@ -7,12 +8,11 @@ import org.testng.annotations.Test;
 import static org.hamcrest.MatcherAssert.assertThat;
 import static org.hamcrest.Matchers.is;
 
-
-@Listeners( org.example.listeners.TestsResultsListener.class )
-public class PrefillFormTestCasePassed extends TestsRunner {
+@Listeners( { TestsResultsListener.class} )
+public class PrefillFormTestCaseFailed extends TestsRunner {
 
     @Test
-    public void testThatFormCanBePrefilledByUser() {
+    public void testThatFormCanBePrefilledByUserFailed() {
         WebFormPage  webFormPage = new WebFormPage(driver);
 
         webFormPage.typeTextInput("Hello")
@@ -29,7 +29,7 @@ public class PrefillFormTestCasePassed extends TestsRunner {
 
         assertThat("Looks like value in Text input is wrong ",
                 webFormPage.getTextInputValue(),
-                is("Hello"));
+                is("It's ok"));
     
     }
 }
