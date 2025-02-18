@@ -19,14 +19,16 @@ public class TestsRunner {
 
     @BeforeClass
     public void beforeClass() {
+
         if (AppConfig.BROWSER.equals("chrome")) ;
         {
+            WebDriverManager.chromedriver().setup();
             ChromeOptions chromeOptions = new ChromeOptions();
             chromeOptions.addArguments("--headless");
             chromeOptions.addArguments("--no-sandbox");
             chromeOptions.addArguments("--dev-shm-usage");
             try{
-                driver = new ChromeDriver(chromeOptions);}
+            driver = new ChromeDriver(chromeOptions);}
             catch (Exception e){
                 System.out.printf("Issue "+ e );
             }
