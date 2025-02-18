@@ -11,7 +11,7 @@ import static org.hamcrest.Matchers.is;
 @Listeners( org.example.listeners.TestsResultsListener.class )
 public class PrefillFormTestCasePassed extends TestsRunner {
 
-    @Test(enabled = false)
+    @Test
     public void testThatFormCanBePrefilledByUser() {
         WebFormPage  webFormPage = new WebFormPage(driver);
 
