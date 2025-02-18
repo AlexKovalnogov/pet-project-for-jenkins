@@ -19,6 +19,7 @@ public class TestsRunner {
 
     @BeforeClass
     public void beforeClass() {
+
         if (AppConfig.BROWSER.equals("chrome")) ;
         {
             WebDriverManager.chromedriver().setup();
