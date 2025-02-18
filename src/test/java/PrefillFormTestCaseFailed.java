@@ -13,7 +13,7 @@ import static org.hamcrest.Matchers.is;
 public class PrefillFormTestCaseFailed extends TestsRunner {
 
     @Test
-    public void testThatFormCanBePrefilledByUser() {
+    public void testThatFormCanBePrefilledByUserFailed() {
         WebFormPage  webFormPage = new WebFormPage(driver);
 
         webFormPage.typeTextInput("Hello")
