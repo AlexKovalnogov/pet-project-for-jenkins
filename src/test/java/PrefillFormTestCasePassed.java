@@ -1,4 +1,5 @@
 import org.example.TestsRunner;
+import org.example.listeners.TestsResultsListener;
 import org.example.pages.SelectStrategy;
 import org.example.pages.WebFormPage;
 import org.testng.annotations.Listeners;
@@ -8,7 +9,7 @@ import static org.hamcrest.MatcherAssert.assertThat;
 import static org.hamcrest.Matchers.is;
 
 
-@Listeners( org.example.listeners.TestsResultsListener.class )
+@Listeners( TestsResultsListener.class )
 public class PrefillFormTestCasePassed extends TestsRunner {
 
     @Test

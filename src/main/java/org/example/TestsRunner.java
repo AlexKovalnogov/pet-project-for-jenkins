@@ -27,7 +27,10 @@ public class TestsRunner {
             chromeOptions.addArguments("--no-sandbox");
             chromeOptions.addArguments("--dev-shm-usage");
             try{
-            driver = new ChromeDriver(chromeOptions);}
+            driver = new ChromeDriver(chromeOptions);
+            driver.manage().window().maximize();
+            }
+
             catch (Exception e){
                 System.out.printf("Issue "+ e );
             }

@@ -8,7 +8,7 @@ import org.testng.annotations.Test;
 import static org.hamcrest.MatcherAssert.assertThat;
 import static org.hamcrest.Matchers.is;
 
-@Listeners( { TestsResultsListener.class} )
+@Listeners( TestsResultsListener.class )
 public class PrefillFormTestCaseFailed extends TestsRunner {
 
     @Test
