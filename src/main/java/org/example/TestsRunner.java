@@ -3,6 +3,7 @@ package org.example;
 import io.github.bonigarcia.wdm.WebDriverManager;
 import io.qameta.allure.Allure;
 import org.example.configInitialization.AppConfig;
+import org.openqa.selenium.NotFoundException;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
@@ -19,7 +20,7 @@ public class TestsRunner {
     @BeforeClass
     public void beforeClass() {
 
-        if (AppConfig.BROWSER.equals("chrome")) ;
+        if (AppConfig.BROWSER.equals("chrome"))
         {
             WebDriverManager.chromedriver().setup();
             ChromeOptions chromeOptions = new ChromeOptions();
@@ -30,12 +31,16 @@ public class TestsRunner {
             driver = new ChromeDriver(chromeOptions);
             driver.manage().window().maximize();
             }
-
             catch (Exception e){
                 System.out.printf("Issue "+ e );
             }
             DriverHolder.availableDrivers.add(driver);
         }
+        else
+        {
+            throw new NotFoundException("Wrong value of browser var");
+        }
+
     }
 
     @BeforeMethod

@@ -1,3 +1,7 @@
+import java.io.FileInputStream
+import java.io.FileOutputStream
+import java.util.*
+
 plugins {
     id("java")
     id("io.qameta.allure") version "2.12.0"
@@ -31,11 +35,30 @@ dependencies {
 
 tasks.test {
     useTestNG(){
+        suites("src/test/resources/tests.xml")
 
     }
 
 }
 
-tasks.register("customtask") {
-    println("Version: ${allureVersion}")
+tasks.register("updateConfig") {
+    val browser = System.getenv("Browser")
+
+    val configFile = file("config.properties")
+
+
+    val properties = Properties()
+
+    if (configFile.exists()) {
+        FileInputStream(configFile).use { input ->
+            properties.load(input)
+        }
+
+        properties.setProperty("BROWSER", browser)
+
+        // Save the updated properties back to the file
+        FileOutputStream(configFile).use { output ->
+            properties.store(output, "Updated by Gradle")
+        }
     }
+}
