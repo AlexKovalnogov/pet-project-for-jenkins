@@ -23,18 +23,15 @@ dependencies {
     testImplementation("org.hamcrest:hamcrest:2.2")
     implementation("log4j:log4j:1.2.17")
     // Import allure-bom to ensure correct versions of all the dependencies are used
-   // testImplementation(platform("io.qameta.allure:allure-bom:$allureVersion"))
+    // testImplementation(platform("io.qameta.allure:allure-bom:$allureVersion"))
     // Add necessary Allure dependencies to dependencies section
     implementation("io.qameta.allure:allure-testng:2.18.1")
-
-
-
 
 
 }
 
 tasks.test {
-    useTestNG(){
+    useTestNG() {
         suites("src/test/resources/tests.xml")
 
     }
@@ -43,10 +40,8 @@ tasks.test {
 
 tasks.register("updateConfig") {
     val browser = System.getenv("Browser")
-
+    println("Value browser is " + browser)
     val configFile = file("config.properties")
-
-
     val properties = Properties()
 
     if (configFile.exists()) {
