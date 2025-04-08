@@ -1,6 +1,9 @@
 package org.example.pages;
 
-import org.apache.log4j.Logger;
+
+
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 import org.openqa.selenium.By;
 import org.openqa.selenium.NoSuchElementException;
 import org.openqa.selenium.WebDriver;
@@ -16,7 +19,7 @@ public class BasePage {
     protected WebDriver driver;
     private Actions actions;
     private WebDriverWait wait;
-    private Logger logger = Logger.getLogger(BasePage.class);
+    private Logger logger = LogManager.getLogger(BasePage.class);
 
     public BasePage(WebDriver driver) {
         this.driver = driver;

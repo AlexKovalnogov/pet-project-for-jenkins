@@ -1,7 +1,9 @@
 package org.example.pages;
 
 import io.qameta.allure.Step;
-import org.apache.log4j.Logger;
+
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 import org.openqa.selenium.*;
 import org.openqa.selenium.support.ui.Select;
 
@@ -10,7 +12,7 @@ import java.time.LocalDate;
 public class WebFormPage extends BasePage {
 
     public WebDriver driver;
-    private Logger log = Logger.getLogger(WebFormPage.class);
+    private Logger log = LogManager.getLogger(WebFormPage.class);
     private By ch03menuBy = By.xpath(".//*[@href='web-form.html']");
 
     private By textInput = By.id("my-text-id");

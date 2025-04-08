@@ -21,10 +21,8 @@ dependencies {
     implementation("org.testng:testng:7.4.0")
     implementation("org.seleniumhq.selenium:selenium-java:4.27.0")
     testImplementation("org.hamcrest:hamcrest:2.2")
-    implementation("log4j:log4j:1.2.17")
-    // Import allure-bom to ensure correct versions of all the dependencies are used
-    // testImplementation(platform("io.qameta.allure:allure-bom:$allureVersion"))
-    // Add necessary Allure dependencies to dependencies section
+    implementation ("org.apache.logging.log4j:log4j-api:2.17.1")
+    implementation ("org.apache.logging.log4j:log4j-core:2.17.1")
     implementation("io.qameta.allure:allure-testng:2.18.1")
 
 
